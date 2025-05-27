@@ -1,17 +1,14 @@
-package xml0527;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.output.Format;
-import org.jdom2.output.XMLOutputter;
-
-public class CreateXML {
-
-	public void createXML() {
-		//1. XML 문서객체 생성
+<%@page import="java.io.IOException"%>
+<%@page import="java.io.FileOutputStream"%>
+<%@page import="org.jdom2.output.Format"%>
+<%@page import="org.jdom2.output.XMLOutputter"%>
+<%@page import="org.jdom2.Element"%>
+<%@page import="org.jdom2.Document"%>
+<%@ page language="java" contentType="application/xml; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"
+    info=""%>
+<%
+//1. XML 문서객체 생성
 		Document doc = new Document();
 		
 
@@ -35,19 +32,9 @@ public class CreateXML {
 		//XMLOutputter xOut = new XMLOutputter(Format.getCompactFormat());
 		XMLOutputter xOut = new XMLOutputter(Format.getPrettyFormat());
 		try {
-			//콘솔출력
-			xOut.output(doc, System.out);
-			//파일로 출력
-			xOut.output(doc, new FileOutputStream("C:/dev/workspace/jsp_prj/src/main/webapp/xml0527/create.xml"));
+			//out 내장객체를 할당하면 web browser로 출력한다.
+			xOut.output(doc, out);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}//createXML
-	
-	public static void main(String[] args) {
-		//1.XML문서객체 생성
-		new CreateXML().createXML();
-		
-	}//main
-
-}
+%>
