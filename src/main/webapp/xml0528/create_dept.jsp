@@ -9,6 +9,9 @@ if(flag == null){
 	cdXML.webBrowserOutput(out);
 }else{
 	cdXML.createDeptFile();
+	String name="이장훈";
+	String name2="이장훈2";
+	System.out.println(name + "/" + name2);
 	%>
 	<?xml version="1.0" encoding="UTF-8"?>
 	<root>
